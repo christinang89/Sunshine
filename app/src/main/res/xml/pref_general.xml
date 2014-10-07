@@ -4,7 +4,7 @@
     <EditTextPreference
         android:key="@string/pref_location_key"
         android:title="@string/pref_location_label"
-        android:defaultValue="@string/pref_location_Default"
+        android:defaultValue="@string/pref_location_default"
         android:inputType="text"
         android:singleLine="true"/>
     <ListPreference
