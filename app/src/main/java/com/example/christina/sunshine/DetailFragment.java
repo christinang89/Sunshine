@@ -25,10 +25,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.christina.sunshine.data.WeatherContract;
-
 import com.example.christina.sunshine.data.WeatherContract.WeatherEntry;
-
-import com.example.christina.sunshine.data.WeatherContract.LocationEntry;
 
 /**
  * A placeholder fragment containing a simple view.
@@ -176,9 +173,9 @@ public class DetailFragment extends Fragment implements LoaderManager.LoaderCall
     public void onLoadFinished(Loader<Cursor> loader, Cursor data) {
         if (data != null && data.moveToFirst()) {
             // Read weather condition ID from cursor
-//            int weatherId = data.getInt(data.getColumnIndex(WeatherEntry.COLUMN_WEATHER_ID));
-            // Use placeholder Image
-            mIconView.setImageResource(R.drawable.ic_launcher);
+            int weatherId = data.getInt(data.getColumnIndex(WeatherEntry.COLUMN_WEATHER_ID));
+            // Use weather art image
+            mIconView.setImageResource(Utility.getArtResourceForWeatherCondition(weatherId));
 
             // Read date from cursor and update views for day of week and date
             String date = data.getString(data.getColumnIndex(WeatherEntry.COLUMN_DATETEXT));
