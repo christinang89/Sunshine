@@ -6,6 +6,7 @@ import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 
+
 public class DetailActivity extends ActionBarActivity {
 
     public static final String DATE_KEY = "forecast_date";

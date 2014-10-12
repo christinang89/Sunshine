@@ -9,6 +9,7 @@ import android.widget.CursorAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+
 /**
  * Created by christina on 10/9/14.
  */

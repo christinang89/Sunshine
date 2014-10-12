@@ -1,5 +1,6 @@
 package com.example.christina.sunshine;
 
+import android.content.Intent;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
@@ -19,8 +20,11 @@ import android.widget.ListView;
 import com.example.christina.sunshine.data.WeatherContract;
 import com.example.christina.sunshine.data.WeatherContract.LocationEntry;
 import com.example.christina.sunshine.data.WeatherContract.WeatherEntry;
+import com.example.christina.sunshine.service.SunshineService;
 
 import java.util.Date;
+
+;
 
 /**
  * Encapsulates fetching the forecast and displaying it as a {@link ListView} layout.
@@ -156,8 +160,10 @@ public class ForecastFragment extends Fragment implements LoaderCallbacks<Cursor
     }
 
     private void updateWeather() {
-        String location = Utility.getPreferredLocation(getActivity());
-        new FetchWeatherTask(getActivity()).execute(location);
+        Intent intent = new Intent(getActivity(), SunshineService.class);
+        intent.putExtra(SunshineService.LOCATION_QUERY_EXTRA,
+                Utility.getPreferredLocation(getActivity()));
+        getActivity().startService(intent);
     }
 
     @Override
